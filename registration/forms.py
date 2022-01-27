@@ -13,7 +13,7 @@ class profileform(ModelForm):
    
     class Meta:
         model= Profile
-        fields= ['middle_name','sex','age','phone_number','nationality','profile_pic','preferences']
+        fields= ['middle_name','sex','age','phone_number','nationality','profile_pic','preference']
         #widgets=forms.
 class userupdateform(ModelForm):
     class Meta:

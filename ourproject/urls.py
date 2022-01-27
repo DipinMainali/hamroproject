@@ -22,6 +22,7 @@ from registration.views import profilepage,registerpage,accountsetting
 from destination.views import destination_view
 from django.conf import settings
 from django.conf.urls.static import static
+from main.views import mainpageview
 urlpatterns = [
     path('075bct/', admin.site.urls),
     path('login/',loginpage,name='login'),
@@ -30,6 +31,7 @@ urlpatterns = [
     path('destination/', destination_view,name='destination'),
     path('logout/', destination_view,name='logout'),
     path('ac/',accountsetting,name='as'),
-    path('',include('home.urls'))
+    path('',include('home.urls')),
+    path('mainpage/', mainpageview,name="mainpage"),
 ]
 urlpatterns += static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT)
