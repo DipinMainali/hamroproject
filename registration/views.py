@@ -1,9 +1,11 @@
 
+from email import message
 from django.shortcuts import render,redirect
 from .forms import profileform, UsercreateForm, userupdateform
 from django.contrib import messages
 from django.contrib.auth import login,authenticate
 from django.views.generic import CreateView
+from django.contrib import messages 
 # Create your views here.
 def profilepage(request):
     if request.method=="POST":
@@ -37,8 +39,16 @@ def registerpage(request):
     if request.method=="POST":
         user_form=UsercreateForm(request.POST)
         if user_form.is_valid():
-            user_form.save()           
-            return redirect('login')
+            pw1=user_form.cleaned_data.get('password1')
+            pw2=user_form.cleaned_data.get('password2')
+            if(pw1==pw2):
+                user_form.save()           
+                return redirect('login')
+            else:
+                messages.add_message(request, messages.INFO, 'Passwords did not match !!!!!!')
+                return redirect('registerpage')
+                
+
     else:
         user_form=UsercreateForm()       
     return render(request,'registeruser.html',{'form':user_form})        

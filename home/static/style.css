@@ -1,0 +1,9 @@
+body{
+    background-color: rgb(237, 237, 237);
+   }
+.navbar
+{
+    position: fixed;
+     top: 0;
+    width: 100%;
+}
