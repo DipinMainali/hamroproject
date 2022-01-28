@@ -1,5 +1,5 @@
 from django.urls import path
 from . import views
 urlpatterns= [
-    path('',views.Home_notlog,name='home')
+    path('destinationpID/',views.destination_view,name='page')
 ]

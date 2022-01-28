@@ -2,6 +2,7 @@
 from django.db import models
 import datetime
 from django.contrib.auth.models import User
+from ratinghome.models import rateinfo
 
 from django.utils import timezone
 
@@ -10,14 +11,20 @@ from django.utils import timezone
    
 
 class Places(models.Model):
+    id=models.IntegerField(primary_key=True)
     name=models.CharField(max_length=30,null=True,blank=True)
     address=models.CharField(max_length=30)
     descrption=models.TextField()
     thumbnail_image=models.ImageField(upload_to="images",null=True,blank=True)
-    ratings=models.ManyToManyField(User)
 
     def __str__(self):
         return self.name
+
+obj=rateinfo.objects.all()
+for place in obj:
+    model=Places(id=place.pID, name=place.pName)
+    model.save()
+
     
 class Place_rating(models.Model):
     rate=models.IntegerField(choices=[(1,1),(2,2),(3,3),(4,4),(5,5)],default=0)
@@ -36,9 +43,9 @@ class Comment(models.Model):
         return '%s - %s' %(self.place.name,self.name)
 
 
-class Destimages(models.Model):
+class Destimagesfile(models.Model):
     place=models.ForeignKey(Places,on_delete=models.CASCADE)
-    image=models.ImageField(upload_to="images")
+    image_file=models.ImageField(upload_to='destimages')
 
     def __str__(self):
         return self.place.name

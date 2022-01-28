@@ -1,8 +1,8 @@
-from django.forms import ModelForm 
+from django.forms import ModelForm, widgets 
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .models import Profile, preferences
+from .models import Profile, Preferences
 
 class UsercreateForm(UserCreationForm):
     class Meta:
@@ -12,7 +12,8 @@ class UsercreateForm(UserCreationForm):
 class profileform(ModelForm):
     class Meta:
         model= Profile
-        fields= ['middle_name','sex','age','phone_number','nationality','profile_pic','preference']
+        fields= ['middle_name','sex','age','phone_number','nationality','profile_pic']
+        
 
 class userupdateform(ModelForm):
     class Meta:
@@ -27,4 +28,4 @@ class preferenceform(forms.Form):
     sightseeing=forms.ChoiceField(choices=Choice,widget=forms.RadioSelect)
     sightseeing=forms.ChoiceField(choices=Choice,widget=forms.RadioSelect)
     class Meta:
-        model= preferences
+        model= Preferences

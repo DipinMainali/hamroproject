@@ -1,7 +1,7 @@
 from django.db import models
 # Create your models here.
 class rateinfo(models.Model):
-    pID=models.IntegerField()
+    pID=models.IntegerField(primary_key=True)
     pName=models.CharField(max_length=30)
     rating_choices=[(0,0),(1,1),(2,2),(3,3),(4,4),(5,5)]
     culture=models.IntegerField(choices=rating_choices)
