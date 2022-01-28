@@ -3,11 +3,7 @@ from destination.models import Places
 # Create your models here.
 class rateinfo(models.Model):
     pID=models.IntegerField(primary_key=True)
-<<<<<<< HEAD
-    pName=models.CharField(max_length=30)
-=======
     pName=models.CharField(max_length=30, null=True, blank=True)
->>>>>>> 77835ee45b953ca5aa2cd126e129bd1db913555d
     rating_choices=[(0,0),(1,1),(2,2),(3,3),(4,4),(5,5)]
     culture=models.IntegerField(choices=rating_choices)
     adventure=models.IntegerField(choices=rating_choices)

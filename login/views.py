@@ -3,7 +3,6 @@ from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.models import User
 from destination.views import destination_view
 from .forms import loginform
-from registration.views import profilepage
 # Create your views here.
 
 def loginpage(request):
@@ -16,7 +15,7 @@ def loginpage(request):
          user=authenticate(request,username=un,password=pwd)
          if user is not None:
             login(request,user)
-            return redirect('as')
+            return redirect('')
 
     else:
         login_form=loginform()
