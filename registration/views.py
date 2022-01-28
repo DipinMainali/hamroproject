@@ -20,10 +20,7 @@ def profilepage(request):
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save() 
-<<<<<<< HEAD
-=======
             messages.success(request,f'Profile created successfully!!')
->>>>>>> 77835ee45b953ca5aa2cd126e129bd1db913555d
             return render(request,'home.html')
     else:
         user_form=userupdateform(instance=request.user)
@@ -54,7 +51,6 @@ def accountsetting(request):
 def registerpage(request):
     if request.method=="POST":
         user_form=UsercreateForm(request.POST)
-<<<<<<< HEAD
         if user_form.is_valid():
             user_form.save() 
             messages.sucess(request,"Registration sucessfull.")          
@@ -62,7 +58,6 @@ def registerpage(request):
         else:
             messages.error(request,"unsucessful registration invalid information")    
             
-=======
      
 
         if  user_form.is_valid() :
@@ -77,7 +72,6 @@ def registerpage(request):
         
         
 
->>>>>>> 77835ee45b953ca5aa2cd126e129bd1db913555d
     else:
         user_form=UsercreateForm()       
     return render(request,'registeruser.html',{'form':user_form})        
