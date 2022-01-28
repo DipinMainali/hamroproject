@@ -1,3 +1,4 @@
+from turtle import home
 from django.shortcuts import render,HttpResponse
 from destination.models import Places
 

@@ -25,15 +25,17 @@ from registration.views import profilepage,registerpage,accountsetting
 from destination.views import destination_view
 from django.conf import settings
 from django.conf.urls.static import static
-urlpatterns =[
-     path('075bct/', admin.site.urls),path('login/',loginpage,name='login'),path('profile/', profilepage ,name='profile'),
+from main.views import mainpageview
+urlpatterns = [
+    path('075bct/', admin.site.urls),
+    path('login/',loginpage,name='login'),
+    path('user_profile_register/', profilepage,name='profile'),
     path('registerpage/', registerpage,name="registerpage"),
     path('destination/', destination_view,name='destination'),
     path('logout/', destination_view,name='logout'),
-    path('registeruserprofile/',accountsetting,name='RUP'),
+    path('ac/',accountsetting,name='as'),
     path('',include('home.urls')),
-    path('destinationpID/',include('destination.urls')),
-    path('mainuser/',include('main.urls'))
+    path('mainpage/', mainpageview,name="mainpage"),
 ]
 
    

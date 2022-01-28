@@ -1,12 +1,17 @@
 
+from email import message
 from django.shortcuts import render,redirect
 from .forms import preferenceform, profileform,UsercreateForm, userupdateform
 from django.contrib import messages
 from django.contrib.auth import login,authenticate
 from django.views.generic import CreateView
+<<<<<<< HEAD
 from django import forms
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
+=======
+from django.contrib import messages 
+>>>>>>> 13ec14dca54e8d98e613129bfd730f8aacba36d3
 # Create your views here.
 
 
