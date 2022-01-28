@@ -6,16 +6,24 @@ from ratinghome.models import rateinfo
 
 from django.utils import timezone
 
-# Create your models here.
+
 
    
 
 class Places(models.Model):
+<<<<<<< HEAD
     id=models.IntegerField(primary_key=True)
+=======
+    id = models.IntegerField(primary_key=True)
+>>>>>>> 77835ee45b953ca5aa2cd126e129bd1db913555d
     name=models.CharField(max_length=30,null=True,blank=True)
     address=models.CharField(max_length=30)
     descrption=models.TextField()
     thumbnail_image=models.ImageField(upload_to="images",null=True,blank=True)
+<<<<<<< HEAD
+=======
+    
+>>>>>>> 77835ee45b953ca5aa2cd126e129bd1db913555d
 
     def __str__(self):
         return self.name
