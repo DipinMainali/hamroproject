@@ -32,7 +32,10 @@
 			border-radius: 5px;
 
 		}
-
+		.alert
+		{
+			text-align: center;
+		}
 		.form_container {
 			margin-top: 20px;
 		}
@@ -76,6 +79,26 @@
 
 </head>
 <body>
+	{% if form.errors %}
+
+	<div class = "alert alert-primary" role = "alert">
+		{{ form.errors.as_text }}
+	</div> 
+
+	{% endif %}
+
+	{% if messages %}
+
+		{% for message in messages %}
+
+		<div class="alert alert-success alert-dismissible fade show">
+			<button type="button" class="close" data-dismiss="alert">&times;</button>
+			<strong>Warning!</strong> {{message}}
+		  </div>
+
+		{% endfor %}
+
+	{% endif %}
 	<div class="container h-100">
 		<div class="d-flex justify-content-center h-100">
 			<div class="user_card">

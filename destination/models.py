@@ -5,16 +5,17 @@ from django.contrib.auth.models import User
 
 from django.utils import timezone
 
-# Create your models here.
+
 
    
 
 class Places(models.Model):
+    id = models.IntegerField(primary_key=True)
     name=models.CharField(max_length=30,null=True,blank=True)
     address=models.CharField(max_length=30)
     descrption=models.TextField()
     thumbnail_image=models.ImageField(upload_to="images",null=True,blank=True)
-    ratings=models.ManyToManyField(User)
+    
 
     def __str__(self):
         return self.name
